@@ -3,6 +3,7 @@ package refactoring;
 import javax.xml.bind.DatatypeConverter;
 import java.nio.charset.StandardCharsets;
 
+
 class Thingy {
 
     private int foo;
@@ -33,4 +34,6 @@ class Thingy {
         bar = 0;
         return new String(DatatypeConverter.parseHexBinary("46697a7a"), StandardCharsets.UTF_8);
     }
+
+
 }
