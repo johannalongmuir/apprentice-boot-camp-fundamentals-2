@@ -6,22 +6,27 @@ public class Bowling {
 
         int totalScore = 0;
 
-        for (int frame = 0; frame < rolls.length; frame += 2) {
+        for (int roll = 0; roll < rolls.length; ) {
 
-            if (rolls[frame] == 10) {
-                int round = rolls[frame] + rolls[frame+1] + rolls[frame+2];
+            if (rolls[roll] == 10) {
+                int round = rolls[roll] + rolls[roll+1] + rolls[roll+2];
                 totalScore += round;
-                if (frame == rolls.length - 3) {
+
+                if (roll == rolls.length - 3) {
                     break;
                 }
-                frame -= 1;
+                roll += 1;
 
-            } else if (rolls[frame] < 10) {
-                int round = rolls[frame] + rolls[frame + 1];
+            } else if (rolls[roll] < 10) {
+                if (roll == rolls.length-1){
+                    break;
+                }
+                int round = rolls[roll] + rolls[roll + 1];
                 if (round == 10) {
-                    round += rolls[frame + 2];
+                    round += rolls[roll + 2];
                 }
                 totalScore += round;
+                roll += 2;
             }
         }
         return totalScore;

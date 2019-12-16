@@ -27,7 +27,6 @@ public class BowlingTest {
     }
 
 
-    // TODO don't actually need this test, just making sure
     @Test
     public void gameWithTwoSpare() {
         int [] rolls = {1, 9, 1, 1, 9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
@@ -47,18 +46,22 @@ public class BowlingTest {
         Assertions.assertThat(score(rolls)).isEqualTo(30);
     }
 
+    @Test
+    public void givenAllStrikes() {
+        int [] rolls = {10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10};
+        Assertions.assertThat(score(rolls)).isEqualTo(300);
+    }
 
-//    @Test
-//    public void givenAllStrikes() {
-//        int [] rolls = {10, 10, 10, 10, 10, 10, 10, 10, 10, 10};
-//        Assertions.assertThat(score(rolls)).isEqualTo(300);
-//    }
-//
-//    @Test
-//    public void spareInFrameTen() {
-//        int [] rolls = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 1};
-//        Assertions.assertThat(score(rolls)).isEqualTo(29);
-//    }
+    @Test
+    public void spareInFrameTen() {
+        int [] rolls = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 1};
+        Assertions.assertThat(score(rolls)).isEqualTo(29);
+    }
 
+    @Test
+    public void fiveStrikesand5Spares() {
+        int [] rolls = {10,10,10,10,10, 1, 9, 1,9, 1,9, 1,9, 1,9 , 1};
+        Assertions.assertThat(score(rolls)).isEqualTo(29);
 
+    }
 }
