@@ -61,7 +61,7 @@ public class BowlingTest {
     @Test
     public void fiveStrikesand5Spares() {
         int [] rolls = {10,10,10,10,10, 1, 9, 1,9, 1,9, 1,9, 1,9 , 1};
-        Assertions.assertThat(score(rolls)).isEqualTo(29);
+        Assertions.assertThat(score(rolls)).isEqualTo(186);
 
     }
 }
