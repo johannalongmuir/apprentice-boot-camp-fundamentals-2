@@ -17,7 +17,7 @@ public class BillingTest {
         givenADealerHas20AdvertsWithTheAdvertPromotionProduct();
         whenTheMonthsBillIsGenerated();
         thenTheTotalWillBe£1200();
-//        thenTheTotalWillBe(1200);
+        thenTheTotalWillBe(1200);
     }
 
     @Test
@@ -32,6 +32,20 @@ public class BillingTest {
         givenAPrivateSellerWith3AdvertsAndNoAdditionalProducts();
         whenTheMonthsBillIsGenerated();
         thenTheTotalWillBe£60();
+    }
+
+    @Test
+    public void givenPrivateSellerWithOneCarandOneProduct() {
+        givenAPrivateSellerWith1AdvertAndOneProduct();
+        whenTheMonthsBillIsGenerated();
+        thenTheTotalWillBe£30();
+    }
+
+
+    private void givenAPrivateSellerWith1AdvertAndOneProduct() {
+        ratePerAdvert = 20;
+        numberOfAdverts = 1;
+        numberOfPromotionProducts = 1;
     }
 
     // TODO add final one if want.
@@ -69,6 +83,14 @@ public class BillingTest {
 
     private void thenTheTotalWillBe£60() {
         Assertions.assertThat(result).isEqualTo(60);
+    }
+
+    private void thenTheTotalWillBe£30() {
+        Assertions.assertThat(result).isEqualTo(30);
+    }
+
+    private void thenTheTotalWillBe(int total) {
+        Assertions.assertThat(result).isEqualTo(total);
     }
 
 
