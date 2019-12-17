@@ -39,15 +39,19 @@ public class ReceiptTests {
         checkout.scan("A");
         checkout.scan("C");
         checkout.scan("D");
+        checkout.scan("A");
+        checkout.scan("A");
         checkout.scan("B");
         assertThat(checkout.receipt()).containsSequence(
                 "A: 50\n",
                 "A: 50\n",
                 "B: 30\n",
-                "A: 50 - 20 (3 for 130)\n",
+                "A: 50\n",
                 "C: 20\n",
                 "D: 15\n",
+                "A: 50\n",
+                "A: 50 - 30 (5 for 220)\n",
                 "B: 30 - 15 (2 for 45)\n",
-                "Total: 210");
+                "Total: 300");
     }
 }
