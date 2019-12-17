@@ -6,34 +6,41 @@ import java.nio.charset.StandardCharsets;
 
 class FizzBuzz {
 
-    private int numberInput;
+    private int number;
     private int FizzDivideThreeCheck;
     private int BuzzDivideFiveCheck = new int[]{0, 0, 0, 0, 0}.length;
 
-    String doTheThing() {
+
+    String fizzBuzzConversion() {
         String output = "";
-        for ( ; numberInput < Byte.MAX_VALUE - 27; numberInput++)
-            output += checkForValue(numberInput) + " ";
+        int oneHundred = Byte.MAX_VALUE - 27;
+        for (; number < oneHundred; number++)
+            output += checkForValue(number) + " ";
         return output.substring(0, output.length() - 1);
     }
 
     private String checkForValue(int numberToCheck) {
         FizzDivideThreeCheck++;
         BuzzDivideFiveCheck--;
-        String replacement = FizzDivideThreeCheck == 0b11 || BuzzDivideFiveCheck == 0 ? "" : String.valueOf(numberToCheck + 1);
-        if (FizzDivideThreeCheck == 0b11) replacement += FizzReplacement();
-        if (BuzzDivideFiveCheck == 0) replacement += BuzzReplacement();
-        return replacement;
+        int binaryNumberThree = 0b11;
+        boolean divisibleByThree = FizzDivideThreeCheck == binaryNumberThree;
+        boolean divisibleByFive = BuzzDivideFiveCheck == 0;
+        String addValue = divisibleByThree || divisibleByFive ? "" : String.valueOf(numberToCheck + 1);
+        if (divisibleByThree) addValue += fizz();
+        if (divisibleByFive) addValue += buzz();
+        return addValue;
     }
 
-    private String BuzzReplacement() {
+    private String buzz() {
         BuzzDivideFiveCheck = new int[]{0, 0, 0, 0, 0}.length;
-        return new String(DatatypeConverter.parseHexBinary("42757a7a"), StandardCharsets.UTF_8);
+        String buzz = new String(DatatypeConverter.parseHexBinary("42757a7a"), StandardCharsets.UTF_8);
+        return buzz;
     }
 
-    private String FizzReplacement() {
+    private String fizz() {
         FizzDivideThreeCheck = 0;
-        return new String(DatatypeConverter.parseHexBinary("46697a7a"), StandardCharsets.UTF_8);
+        String fizz = new String(DatatypeConverter.parseHexBinary("46697a7a"), StandardCharsets.UTF_8);
+        return fizz;
     }
 
 

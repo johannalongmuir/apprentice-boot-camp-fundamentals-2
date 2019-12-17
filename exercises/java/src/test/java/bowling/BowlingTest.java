@@ -62,6 +62,11 @@ public class BowlingTest {
     public void fiveStrikesand5Spares() {
         int [] rolls = {10,10,10,10,10, 1, 9, 1,9, 1,9, 1,9, 1,9 , 1};
         Assertions.assertThat(score(rolls)).isEqualTo(186);
+    }
 
+    @Test
+    public void nineZeroEachFrame() {
+        int [] rolls = {9,0, 9,0,9,0,9,0,9,0,9,0,9,0,9,0,9,0,9,0};
+        Assertions.assertThat(score(rolls)).isEqualTo(90);
     }
 }
