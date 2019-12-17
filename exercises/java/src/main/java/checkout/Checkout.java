@@ -43,6 +43,6 @@ class Checkout {
     }
 
     String receipt() {
-        return receipt.text();
+        return receipt.text(totalCost);
     }
 }
