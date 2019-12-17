@@ -22,8 +22,7 @@ class FizzBuzz {
         for ( ; fizzBuzzCounter < ONE_HUNDRED; fizzBuzzCounter++)
             result += calculateForValue(fizzBuzzCounter) + " ";
 
-        String trimmedResult = removeLastCharacter(result);
-        return trimmedResult;
+        return removeLastCharacter(result);
     }
 
 
@@ -31,15 +30,11 @@ class FizzBuzz {
         fizzDivideThreeCounter++;
         buzzDivideFiveCounter--;
 
-        boolean divisibleByThree = isDivisibleByThree();
-        boolean divisibleByFive = isDivisibleByFive();
+        String addValue = isDivisibleByThree() || isDivisibleByFive() ? "" : indexToNumericalValue(index);
 
-        String numericalValue = indexToNumericalValue(index);
+        if (isDivisibleByThree()) addValue += fizz();
+        if (isDivisibleByFive()) addValue += buzz();
 
-        String addValue = divisibleByThree || divisibleByFive ? "" : numericalValue;
-
-        if (divisibleByThree) addValue += fizz();
-        if (divisibleByFive) addValue += buzz();
         return addValue;
     }
 
