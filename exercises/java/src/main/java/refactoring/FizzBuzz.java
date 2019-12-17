@@ -6,21 +6,21 @@ import java.nio.charset.StandardCharsets;
 
 class FizzBuzz {
 
-    private static final int BUZZ_FACTOR = new int[]{0, 0, 0, 0, 0}.length;
-    private int number;
+    public static final int FIVE = new int[]{0, 0, 0, 0, 0}.length;
+    private int fizzBuzzCounter;
     private int FizzDivideThreeCounter;
-    private int BuzzDivideFiveCounter = new int[]{0, 0, 0, 0, 0}.length;
+    private int BuzzDivideFiveCounter = FIVE;
     private static final int THREE = 0b11;
     private static final String BUZZ = new String(DatatypeConverter.parseHexBinary("42757a7a"), StandardCharsets.UTF_8);
     private static final String FIZZ = new String(DatatypeConverter.parseHexBinary("46697a7a"), StandardCharsets.UTF_8);
-    private static final int ONE_HUNDRED = Byte.MAX_VALUE - 27;
+    public static final int ONE_HUNDRED = Byte.MAX_VALUE - 27;
 
 
     String computeFizzBuzzUpToOneOuthundred() {
         String result = "";
 
-        for (; number < ONE_HUNDRED; number++)
-            result += calculateForValue(number) + " ";
+        for (; fizzBuzzCounter < ONE_HUNDRED; fizzBuzzCounter++)
+            result += calculateForValue(fizzBuzzCounter) + " ";
         String trimmedResult = result.substring(0, result.length() - 1);
         return trimmedResult;
     }
@@ -38,7 +38,7 @@ class FizzBuzz {
     }
 
     private String buzz() {
-        BuzzDivideFiveCounter = BUZZ_FACTOR;
+        BuzzDivideFiveCounter = FIVE;
         return BUZZ;
     }
 
