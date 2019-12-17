@@ -8,17 +8,18 @@ class Checkout {
     private int numberOfB = 0;
     private Receipt receipt = new Receipt();
 
+
     void scan(String sku) {
         if ("A".equals(sku)) {
             updateTotalCost(50);
             ++numberOfA;
             applyADiscounts(numberOfA, 5, DISCOUNT_VALUE_A);
-            receipt.scannedA();
+            receipt.scannedA(numberOfA);
         } else if ("B".equals(sku)) {
             updateTotalCost(30);
             ++numberOfB;
             applyADiscounts(numberOfB, 2, DISCOUNT_VALUE_B);
-            receipt.scannedB();
+            receipt.scannedB(numberOfB);
         } else if ("C".equals(sku)) {
             updateTotalCost(20);
             receipt.scannedC();
