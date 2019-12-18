@@ -8,17 +8,19 @@ class Receipt {
         return text + "Total: " + total;
     }
 
-    void scannedA(int numberOfA) {
+    protected void scannedA(int numberOfA) {
         text += "A: 50";
-        if (numberOfA % 5 == 0) {
+        if (isDivisibleBy(numberOfA, Checkout.NUMBER_OF_A_REQUIRED_FOR_DISOUNT)) {
             text += " - 30 (5 for 220)";
         }
         text += "\n";
     }
 
+
+
     void scannedB(int numberOfB) {
         text += "B: 30";
-        if (numberOfB % 2 == 0) {
+        if (isDivisibleBy(numberOfB, Checkout.NUMBER_OF_B_REQUIRED_FOR_DISCOUNT)) {
             text += " - 15 (2 for 45)";
         }
         text += "\n";
@@ -31,4 +33,12 @@ class Receipt {
     void scannedD() {
         text += "D: 15\n";
     }
+
+
+
+    private boolean isDivisibleBy(int productCounter, int numberRequiredForDiscount) {
+        return productCounter % numberRequiredForDiscount == 0;
+    }
+
+
 }

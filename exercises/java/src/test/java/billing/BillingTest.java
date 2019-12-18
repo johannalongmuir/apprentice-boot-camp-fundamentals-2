@@ -16,7 +16,6 @@ public class BillingTest {
     public void givenDealerWithAvertsAndOneProduct() {
         givenADealerHas20AdvertsWithTheAdvertPromotionProduct();
         whenTheMonthsBillIsGenerated();
-        thenTheTotalWillBe£1200();
         thenTheTotalWillBe(1200);
     }
 

@@ -29,11 +29,17 @@ class FizzBuzz {
     private String calculateForValue(int index) {
         fizzDivideThreeCounter++;
         buzzDivideFiveCounter--;
+        String addValue = "";
 
-        String addValue = isDivisibleByThree() || isDivisibleByFive() ? "" : indexToNumericalValue(index);
-
-        if (isDivisibleByThree()) addValue += fizz();
-        if (isDivisibleByFive()) addValue += buzz();
+        if (!isDivisibleByThree() && !isDivisibleByFive()) {
+            addValue += indexToNumericalValue(index);
+        }
+        if (isDivisibleByThree()) {
+            addValue += fizz();
+        }
+        if (isDivisibleByFive()) {
+            addValue += buzz();
+        }
 
         return addValue;
     }
