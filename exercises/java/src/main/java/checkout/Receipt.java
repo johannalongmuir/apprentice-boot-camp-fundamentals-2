@@ -26,24 +26,4 @@ class Receipt {
     private void newLine() {
         text += "\n";
     }
-
-
-//    void scannedB(int numberOfB) {
-//        getLine("B: 30", 30);
-//        if (isDivisibleBy(numberOfB, Checkout.NUMBER_OF_B_REQUIRED_FOR_DISCOUNT)) {
-//            text += " - 15 (2 for 45)";
-//        }
-//        newLine();
-//    }
-
-
-//    if (isDivisibleBy(Checkout.numberOfA, Checkout.NUMBER_OF_A_REQUIRED_FOR_DISOUNT)) {
-//                text += " - 30 (5 for 220)";
-
-
-    private boolean isDivisibleBy(int productCounter, int numberRequiredForDiscount) {
-        return productCounter % numberRequiredForDiscount == 0;
-    }
-
-
 }
